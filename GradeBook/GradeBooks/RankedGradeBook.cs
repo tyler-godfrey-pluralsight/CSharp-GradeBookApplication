@@ -7,6 +7,10 @@ namespace GradeBook.GradeBooks
 {
     public class RankedGradeBook : BaseGradeBook
     {
+        public RankedGradeBook(string name, bool weighting) : base(name, weighting)
+        {
+            Type = Enums.GradeBookType.Ranked;
+        }
         public override char GetLetterGrade(double averageGrade)
         {
             if (Students.Count < 5)
@@ -48,10 +52,6 @@ namespace GradeBook.GradeBooks
                 return;
             }
             base.CalculateStudentStatistics(name);
-        }
-        public RankedGradeBook(string name) : base(name)
-        {
-            Type = Enums.GradeBookType.Ranked;
         }
     }
 }
